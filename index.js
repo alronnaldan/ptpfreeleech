@@ -63,27 +63,6 @@ try {
 
   let req
 
-  try {
-    // Attempt to log into PassThePopcorn.
-    req = await request({
-      method: 'POST',
-      uri: 'https://passthepopcorn.me/ajax.php?action=login',
-      form: {
-        username: config.username,
-        password: config.password,
-        passkey: config.passkey,
-        keeplogged: '0',
-        login: 'Login!'
-      },
-      resolveWithFullResponse: true
-    })
-  } catch (err){
-    console.error('PTP login failed!')
-    console.error(err)
-
-    process.exit()
-  }
-
   let webhook
 
   if (config.discord){
@@ -109,6 +88,10 @@ try {
     // Attempt to request current freeleech torrent information from PassThePopcorn.
     req = await request({
       method: 'GET',
+      headers: {
+        'ApiUser': config.apiuser,
+        'ApiKey': config.apikey
+      },
       uri: 'https://passthepopcorn.me/torrents.php?freetorrent=1&grouping=0&json=noredirect',
       resolveWithFullResponse: true
     })
