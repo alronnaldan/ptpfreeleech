@@ -41,7 +41,8 @@ Below is an example `config.example.json`. Rename `config.example.json` to `conf
   "minsize": -1, // Minimum size in megabytes. Set to -1 for unlimited.
   "maxsize": -1, // Maximum size in megabytes. Set to -1 for unlimited.
   "discord": "", // Discord webhook URI. Optional.
-  "autodownload": "" // Automatically download .torrent files in a specified path. Optional.
+  "autodownload": "", // Automatically download .torrent files in a specified path. Optional.
+  "request_time": 60 // Set how often to check the site for new freeleech items. Defaults to 1 minute.
 }
 ```
 
