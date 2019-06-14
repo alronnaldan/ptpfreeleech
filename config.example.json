@@ -8,5 +8,6 @@
   "minsize": -1,
   "maxsize": -1,
   "discord": "",
-  "autodownload": ""
+  "autodownload": "",
+  "request_time": 60
 }
