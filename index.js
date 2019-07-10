@@ -82,7 +82,8 @@ async function makeRequest() {
       })
     } catch (err){
       console.error('Discord webhook login failed!')
-      return console.error(err)
+      console.error(err)
+      return setTimeout(makeRequest, config.request_time * 1000 + 60000)
     }
 
     let data = JSON.parse(req.body)
@@ -101,7 +102,8 @@ async function makeRequest() {
     })
   } catch (err){
     console.error('PTP request failed!')
-    return console.error(err)
+    console.error(err)
+    return setTimeout(makeRequest, config.request_time * 1000 + 60000)
   }
 
   let data = JSON.parse(req.body)
